@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BreakfastOrderingApp</string>
+    <string name="menu_item_image_description">Menu item image</string>
+    <string name="add_to_cart">Add</string>
+</resources>
