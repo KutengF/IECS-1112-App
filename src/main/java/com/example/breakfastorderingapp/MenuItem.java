@@ -8,7 +8,7 @@ public class MenuItem implements Serializable {
     private double price;
     private String imageUrl;
 
-    public MenuItem(int id, String name, String description, double price, String imageUrl) {
+    public MenuItem(String name, String description, double price, String imageUrl) {
         this.id = id;
         this.name = name;
         this.description = description;

@@ -1,6 +1,5 @@
 package com.example.breakfastorderingapp;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +16,10 @@ import java.util.List;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
-    private Context context;
-    private List<MenuItem> menuItems;
-    private OnItemClickListener itemClickListener;
+    private final List<MenuItem> menuItems;
+    private final OnItemClickListener itemClickListener;
 
-    public MenuAdapter(Context context, List<MenuItem> menuItems, MainActivity mainActivity) {
-        this.context = context;
+    public MenuAdapter(List<MenuItem> menuItems, OnItemClickListener itemClickListener) {
         this.menuItems = menuItems;
         this.itemClickListener = itemClickListener;
     }
@@ -43,14 +40,14 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         holder.price.setText(String.format("$%.2f", menuItem.getPrice()));
         Picasso.get().load(menuItem.getImageUrl()).into(holder.image);
 
-        if (itemClickListener != null) {
-            holder.addToCartButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        holder.addToCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (itemClickListener != null) {
                     itemClickListener.onAddToCartClick(menuItem);
                 }
-            });
-        }
+            }
+        });
     }
 
     @Override
@@ -58,27 +55,25 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         return menuItems.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public interface OnItemClickListener {
+        void onAddToCartClick(MenuItem menuItem);
+    }
 
-        ImageView image;
-        TextView name;
-        TextView description;
-        TextView price;
-        Button addToCartButton;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        private final ImageView image;
+        private final TextView name;
+        private final TextView description;
+        private final TextView price;
+        private final Button addToCartButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             image = itemView.findViewById(R.id.menu_item_image);
             name = itemView.findViewById(R.id.menu_item_name);
             description = itemView.findViewById(R.id.menu_item_description);
             price = itemView.findViewById(R.id.menu_item_price);
             addToCartButton = itemView.findViewById(R.id.add_to_cart_button);
         }
-    }
-
-    public interface OnItemClickListener {
-        void onAddToCartClick(MenuItem menuItem);
     }
 }
 
