@@ -1,4 +1,4 @@
-package com.example.iecs_1112_app.ui.notifications;
+package com.example.iecs_1112_app.ui.meal;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,14 +12,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.iecs_1112_app.databinding.FragmentNotificationsBinding;
 
-public class NotificationsFragment extends Fragment {
+public class mealFragment extends Fragment {
 
     private FragmentNotificationsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        mealViewModel notificationsViewModel =
+                new ViewModelProvider(this).get(mealViewModel.class);
 
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

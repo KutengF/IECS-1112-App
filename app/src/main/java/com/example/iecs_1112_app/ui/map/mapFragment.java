@@ -1,4 +1,4 @@
-package com.example.iecs_1112_app.ui.home;
+package com.example.iecs_1112_app.ui.map;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,14 +12,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.iecs_1112_app.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment {
+public class mapFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        mapViewModel homeViewModel =
+                new ViewModelProvider(this).get(mapViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

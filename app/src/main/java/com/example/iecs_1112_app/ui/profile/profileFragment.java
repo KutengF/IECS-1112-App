@@ -1,4 +1,4 @@
-package com.example.iecs_1112_app.ui.dashboard;
+package com.example.iecs_1112_app.ui.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,16 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.iecs_1112_app.databinding.FragmentDashboardBinding;
+import com.example.iecs_1112_app.databinding.FragmentProfileBinding;
 
-public class DashboardFragment extends Fragment {
+public class profileFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentProfileBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        profileViewModel dashboardViewModel =
+                new ViewModelProvider(this).get(profileViewModel.class);
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
